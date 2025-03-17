@@ -97,6 +97,9 @@ public class FirstPersonController : MonoBehaviour
     public bool enableJump = true;
     public KeyCode jumpKey = KeyCode.Space;
     public float jumpPower = 5f;
+    public float jumpCooldown = 1f;
+    private float nextJumpTime = 0f;
+
 
     // Internal Variables
     private bool isGrounded = false;
@@ -326,9 +329,10 @@ public class FirstPersonController : MonoBehaviour
         #region Jump
 
         // Gets input and calls jump method
-        if(enableJump && Input.GetKeyDown(jumpKey) && isGrounded)
+        if (enableJump && Input.GetKeyDown(jumpKey) && isGrounded && Time.time >= nextJumpTime)
         {
             Jump();
+            nextJumpTime = Time.time + jumpCooldown;
         }
 
         #endregion

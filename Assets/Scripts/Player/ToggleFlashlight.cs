@@ -16,24 +16,32 @@ public class ToggleFlashlight : MonoBehaviour
     
     private void Start()
     {
-        // Ensure the flashlight is off when the game starts.
+        // Ensure the flashlight starts off.
         SetFlashlight(false);
     }
     
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        // Only allow toggling if the flashlight has been unlocked.
+        if (Input.GetKeyDown(KeyCode.T) && FlashlightPickup.flashlightUnlocked)
         {
             isOn = !isOn;
             SetFlashlight(isOn);
         }
     }
     
-    private void SetFlashlight(bool active)
+    public void SetFlashlight(bool active)
     {
         if (flashLight != null)
         {
             flashLight.enabled = active;
         }
+    }
+    
+    // Call this method to force-enable the flashlight (when picked up).
+    public void ForceToggleOn()
+    {
+        isOn = true;
+        SetFlashlight(true);
     }
 }

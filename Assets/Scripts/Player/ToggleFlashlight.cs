@@ -3,8 +3,17 @@ using UnityEngine;
 public class ToggleFlashlight : MonoBehaviour
 {
     private Light flashLight;
+    [SerializeField] private GameObject TutoFlashlight;
     private bool isOn = false;
     
+    private void TutoDone()
+    {
+        if (TutoFlashlight != null)
+        {
+            TutoFlashlight.SetActive(false);
+        }
+    }
+
     private void Awake()
     {
         flashLight = GetComponent<Light>();
@@ -27,6 +36,7 @@ public class ToggleFlashlight : MonoBehaviour
         {
             isOn = !isOn;
             SetFlashlight(isOn);
+            TutoDone();
         }
     }
     

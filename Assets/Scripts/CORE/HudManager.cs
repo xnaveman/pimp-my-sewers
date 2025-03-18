@@ -136,7 +136,7 @@ public class HudManager : MonoBehaviour
 			
 			//Change le sprite en fonction de l'item
 			switch(item){
-				case Item.ClassicKey:
+				case Item.FlashLight:
 					hud_item.GetComponent<Image>().sprite = item_sprites[0];
 					break;
 			}
@@ -168,7 +168,7 @@ public class HudManager : MonoBehaviour
 public enum Item
 {
 	None,
-	ClassicKey,
+	FlashLight,
 }
 
 

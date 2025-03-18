@@ -529,6 +529,7 @@ GameObject:
   - component: {fileID: 301153966}
   - component: {fileID: 301153965}
   - component: {fileID: 301153964}
+  - component: {fileID: 301153967}
   m_Layer: 5
   m_Name: Button Play
   m_TagString: Untagged
@@ -650,6 +651,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 301153962}
   m_CullTransparentMesh: 1
+--- !u!114 &301153967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301153962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1c71245bd4634eceb1dfa8ba992de6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationAmplitude: 0
+  rotationSpeed: 0
+  scaleAmplitude: 0
+  scaleSpeed: 0
+  startDelay: 0
+  hoverAdditionalScale: 0.2
+  hoverTransitionSpeed: 5
 --- !u!1 &312405573
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,6 +891,7 @@ GameObject:
   - component: {fileID: 322170306}
   - component: {fileID: 322170305}
   - component: {fileID: 322170304}
+  - component: {fileID: 322170307}
   m_Layer: 5
   m_Name: Button Quit
   m_TagString: Untagged
@@ -992,6 +1013,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322170302}
   m_CullTransparentMesh: 1
+--- !u!114 &322170307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322170302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1c71245bd4634eceb1dfa8ba992de6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationAmplitude: 0
+  rotationSpeed: 0
+  scaleAmplitude: 0
+  scaleSpeed: 0
+  startDelay: 0
+  hoverAdditionalScale: 0.2
+  hoverTransitionSpeed: 5
 --- !u!1 &401861999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1079,6 +1119,7 @@ GameObject:
   - component: {fileID: 415499454}
   - component: {fileID: 415499453}
   - component: {fileID: 415499452}
+  - component: {fileID: 415499455}
   m_Layer: 5
   m_Name: Button Credits
   m_TagString: Untagged
@@ -1152,7 +1193,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1389096794}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: ShowOptions
+        m_MethodName: ShowCredits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1200,6 +1241,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 415499450}
   m_CullTransparentMesh: 1
+--- !u!114 &415499455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415499450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1c71245bd4634eceb1dfa8ba992de6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationAmplitude: 0
+  rotationSpeed: 0
+  scaleAmplitude: 0
+  scaleSpeed: 0
+  startDelay: 0
+  hoverAdditionalScale: 0.2
+  hoverTransitionSpeed: 5
 --- !u!1 &463539840
 GameObject:
   m_ObjectHideFlags: 0
@@ -1716,7 +1776,6 @@ RectTransform:
   - {fileID: 1389096793}
   - {fileID: 2100176249}
   - {fileID: 1356477620}
-  - {fileID: 1397979057}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1950,7 +2009,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1356477620
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1963,6 +2022,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1397979057}
   - {fileID: 633703077}
   - {fileID: 67410244}
   - {fileID: 1685221204}
@@ -2038,7 +2098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1389096793
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2076,6 +2136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel_options: {fileID: 2100176248}
+  panel_credits: {fileID: 1356477619}
 --- !u!114 &1389096795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2126,6 +2187,7 @@ GameObject:
   - component: {fileID: 1397979060}
   - component: {fileID: 1397979059}
   - component: {fileID: 1397979058}
+  - component: {fileID: 1397979061}
   m_Layer: 5
   m_Name: Button Retour
   m_TagString: Untagged
@@ -2146,11 +2208,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1744360213}
-  m_Father: {fileID: 694732524}
+  m_Father: {fileID: 1356477620}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 580, y: 600}
+  m_AnchoredPosition: {x: 580, y: 610}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1397979058
@@ -2199,7 +2261,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1389096794}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: UnshowOptions
+        m_MethodName: UnshowCredits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2247,6 +2309,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397979056}
   m_CullTransparentMesh: 1
+--- !u!114 &1397979061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397979056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1c71245bd4634eceb1dfa8ba992de6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationAmplitude: 0
+  rotationSpeed: 0
+  scaleAmplitude: 0
+  scaleSpeed: 0
+  startDelay: 0
+  hoverAdditionalScale: 0.4
+  hoverTransitionSpeed: 6
 --- !u!1 &1467047423
 GameObject:
   m_ObjectHideFlags: 0
@@ -2461,6 +2542,7 @@ GameObject:
   - component: {fileID: 1652114739}
   - component: {fileID: 1652114738}
   - component: {fileID: 1652114737}
+  - component: {fileID: 1652114740}
   m_Layer: 5
   m_Name: Button Retour
   m_TagString: Untagged
@@ -2582,6 +2664,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1652114735}
   m_CullTransparentMesh: 1
+--- !u!114 &1652114740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652114735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1c71245bd4634eceb1dfa8ba992de6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationAmplitude: 0
+  rotationSpeed: 0
+  scaleAmplitude: 0
+  scaleSpeed: 0
+  startDelay: 0
+  hoverAdditionalScale: 0.2
+  hoverTransitionSpeed: 5
 --- !u!1 &1685221203
 GameObject:
   m_ObjectHideFlags: 0
@@ -2877,6 +2978,7 @@ GameObject:
   - component: {fileID: 1991694904}
   - component: {fileID: 1991694906}
   - component: {fileID: 1991694905}
+  - component: {fileID: 1991694907}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -2901,7 +3003,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -350, y: 200}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1991694905
 MonoBehaviour:
@@ -2941,6 +3043,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1991694903}
   m_CullTransparentMesh: 1
+--- !u!114 &1991694907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991694903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1c71245bd4634eceb1dfa8ba992de6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationAmplitude: 5
+  rotationSpeed: 1.4
+  scaleAmplitude: 0.075
+  scaleSpeed: 1
+  startDelay: 0
+  hoverAdditionalScale: 0.2
+  hoverTransitionSpeed: 5
 --- !u!1 &1991951707
 GameObject:
   m_ObjectHideFlags: 0
@@ -3087,6 +3208,7 @@ GameObject:
   - component: {fileID: 2058562325}
   - component: {fileID: 2058562324}
   - component: {fileID: 2058562323}
+  - component: {fileID: 2058562326}
   m_Layer: 5
   m_Name: Button Options
   m_TagString: Untagged
@@ -3208,6 +3330,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058562321}
   m_CullTransparentMesh: 1
+--- !u!114 &2058562326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058562321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1c71245bd4634eceb1dfa8ba992de6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationAmplitude: 0
+  rotationSpeed: 0
+  scaleAmplitude: 0
+  scaleSpeed: 0
+  startDelay: 0
+  hoverAdditionalScale: 0.2
+  hoverTransitionSpeed: 5
 --- !u!1 &2094376548
 GameObject:
   m_ObjectHideFlags: 0

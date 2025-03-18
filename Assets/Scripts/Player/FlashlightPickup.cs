@@ -10,7 +10,7 @@ public class FlashlightPickup : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             playerInRange = true;
-            HudManager.instance.showMessage("F pour prendre");
+            HudManager.instance.showMessage("Clic droit pour ramasser");
         }
     }
     
@@ -25,7 +25,7 @@ public class FlashlightPickup : MonoBehaviour
     
     private void Update()
     {
-        if(playerInRange && !flashlightUnlocked && Input.GetKeyDown(KeyCode.F))
+        if(playerInRange && !flashlightUnlocked && Input.GetMouseButtonDown(1))
         {
             flashlightUnlocked = true;
             
@@ -39,11 +39,9 @@ public class FlashlightPickup : MonoBehaviour
             HudManager.instance.eraseMessage();
             
             // Add the item to the HUD bar.
-            // (Ensure that your HudManager script has an "addItem" function and that
-            // the Item enum has the proper item for the flashlight pickup.)
             HudManager.instance.addItem(Item.FlashLight);
             
-            // Deactivate the pickup placeholder (lightTorch) so that it disappears.
+            // Deactivate the pickup placeholder so that it disappears.
             if(transform.parent != null)
             {
                 transform.parent.gameObject.SetActive(false);

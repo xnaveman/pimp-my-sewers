@@ -32,7 +32,7 @@ public class ToggleFlashlight : MonoBehaviour
     private void Update()
     {
         // Only allow toggling if the flashlight has been unlocked.
-        if (Input.GetKeyDown(KeyCode.T) && FlashlightPickup.flashlightUnlocked)
+        if (Input.GetKeyDown(KeyCode.F) && FlashlightPickup.flashlightUnlocked)
         {
             isOn = !isOn;
             SetFlashlight(isOn);

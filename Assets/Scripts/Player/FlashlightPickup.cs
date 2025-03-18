@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class FlashlightPickup : MonoBehaviour
 {
-    // Global variable that determines if the flashlight has been picked up.
     public static bool flashlightUnlocked = false;
     private bool playerInRange = false;
     
@@ -29,14 +28,22 @@ public class FlashlightPickup : MonoBehaviour
         if(playerInRange && !flashlightUnlocked && Input.GetKeyDown(KeyCode.F))
         {
             flashlightUnlocked = true;
+            
             // Automatically activate the flashlight.
             ToggleFlashlight tf = GetComponentInParent<ToggleFlashlight>();
             if(tf != null)
             {
                 tf.ForceToggleOn();
             }
+            
             HudManager.instance.eraseMessage();
-            // Deactivate the parent placeholder (lightTorch) so that it disappears from the table.
+            
+            // Add the item to the HUD bar.
+            // (Ensure that your HudManager script has an "addItem" function and that
+            // the Item enum has the proper item for the flashlight pickup.)
+            HudManager.instance.addItem(Item.FlashLight);
+            
+            // Deactivate the pickup placeholder (lightTorch) so that it disappears.
             if(transform.parent != null)
             {
                 transform.parent.gameObject.SetActive(false);

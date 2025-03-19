@@ -103,6 +103,7 @@ public class TagCleaner : MonoBehaviour
         cleaned = true;
         // Increase the global graffCollected counter.
         GameManager.instance.graffCollected++;
+        HudManager.instance.eraseMessage();
         HudManager.instance.showTimedMessage("Graffiti nettoyé (" + GameManager.instance.graffCollected + "/5)");
         
         Destroy(gameObject);

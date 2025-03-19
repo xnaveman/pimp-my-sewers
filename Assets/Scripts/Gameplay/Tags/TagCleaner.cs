@@ -15,6 +15,10 @@ public class TagCleaner : MonoBehaviour
     private float holdTimer = 0f;
     private bool cleaned = false;
 
+    // Define our tag-specific messages.
+    private const string cleaningMessage = "Nettoyage ...";
+    private const string promptMessage = "Maintenir clic droit pour nettoyer";
+
     void Start()
     {
         mainCamera = Camera.main;
@@ -24,7 +28,7 @@ public class TagCleaner : MonoBehaviour
 
     void Update()
     {
-        if(mainCamera == null || cleaned)
+        if (mainCamera == null || cleaned)
             return;
         
         // Create a ray from the center of the screen.
@@ -33,43 +37,53 @@ public class TagCleaner : MonoBehaviour
         bool objectInSight = false;
         
         // Check if the ray hits within the detection distance.
-        if(Physics.Raycast(ray, out hit, detectionDistance))
+        if (Physics.Raycast(ray, out hit, detectionDistance))
         {
-            if(hit.collider != null && hit.collider.gameObject == gameObject)
+            if (hit.collider != null && hit.collider.gameObject == gameObject)
             {
                 objectInSight = true;
             }
         }
         
-        // If the tag is being looked at...
         if (objectInSight)
         {
-            // ...and the player holds down the right click,
-            // increment the hold timer and update the progress bar.
-            if(Input.GetMouseButton(1))
+            if (Input.GetMouseButton(1))
             {
-                HudManager.instance.showMessage("Nettoyage ...");
+                // Only override the HUD message if it is empty or already one of our tag messages.
+                if (HudManager.instance.CurrentMessage == "" ||
+                    HudManager.instance.CurrentMessage == cleaningMessage ||
+                    HudManager.instance.CurrentMessage == promptMessage)
+                {
+                    HudManager.instance.showMessage(cleaningMessage);
+                }
                 holdTimer += Time.deltaTime;
-                if(progressBar != null)
+                if (progressBar != null)
                     progressBar.fillAmount = Mathf.Clamp01(holdTimer / requiredHoldTime);
                 
-                // When the required hold time has been reached, clean the tag.
-                if(holdTimer >= requiredHoldTime)
+                if (holdTimer >= requiredHoldTime)
                 {
                     CleanTag();
                 }
             }
             else
             {
-                // If the button is released early, reset the timer and progress bar.
+                // If button is released early, set our prompt only if our message is active.
+                if (HudManager.instance.CurrentMessage == "" ||
+                    HudManager.instance.CurrentMessage == cleaningMessage)
+                {
+                    HudManager.instance.showMessage(promptMessage);
+                }
                 ResetHold();
-                HudManager.instance.showMessage("Maintenir clic droit pour nettoyer");
             }
         }
         else
         {
-            // If not looking at the tag, reset the timer and progress bar.
-            HudManager.instance.eraseMessage();
+            // Only erase the message if it is one of our tag messages.
+            if (HudManager.instance.CurrentMessage == cleaningMessage ||
+                HudManager.instance.CurrentMessage == promptMessage)
+            {
+                HudManager.instance.eraseMessage();
+            }
             ResetHold();
         }
     }
@@ -77,23 +91,20 @@ public class TagCleaner : MonoBehaviour
     void ResetHold()
     {
         holdTimer = 0;
-        if(progressBar != null)
+        if (progressBar != null)
             progressBar.fillAmount = 0;
     }
     
     void CleanTag()
     {
-        if(cleaned)
+        if (cleaned)
             return;
             
         cleaned = true;
         // Increase the global graffCollected counter.
         GameManager.instance.graffCollected++;
-        // Show a timed HUD message indicating the cleaning is complete.
         HudManager.instance.showTimedMessage("Graffiti nettoyé (" + GameManager.instance.graffCollected + "/5)");
-        // Optionally, you can also use HudManager.RemoveMessageAfterDelay(2f);
         
-        // Destroy this tag GameObject.
         Destroy(gameObject);
     }
 }

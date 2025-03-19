@@ -29,6 +29,8 @@ public class HudManager : MonoBehaviour
     // Ajouter les sprites des items ici
     [SerializeField] private Sprite[] item_sprites;
     
+    public string CurrentMessage { get; private set; } = "";
+    
     // Pattern singleton, pour récupérer facilement un objet unique dans le jeu
     void Awake(){
         if(instance == null){
@@ -127,6 +129,7 @@ public class HudManager : MonoBehaviour
     
     // Afficher un message qui reste jusqu'à ce qu'il soit explicitement effacé.
     public void showMessage(string message){
+        CurrentMessage = message;
         hud_message.SetActive(true);
         hud_message.GetComponent<TMP_Text>().SetText(message);
         autoRemove = false;
@@ -134,6 +137,7 @@ public class HudManager : MonoBehaviour
     
     public void eraseMessage(){
         hud_message.SetActive(false);
+        CurrentMessage = "";
         autoRemove = false;
     }
     

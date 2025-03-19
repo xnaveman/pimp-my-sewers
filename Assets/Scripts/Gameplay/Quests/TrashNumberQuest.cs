@@ -30,7 +30,7 @@ public class TrashNumberQuest : MonoBehaviour
             {
                 if (!messageShown)
                 {
-                    HudManager.instance.showMessage("test trash");
+                    HudManager.instance.showMessage("Déchets nettoyés : " + GameManager.instance.trashCollected + "/8");
                     messageShown = true;
                 }
                 return;

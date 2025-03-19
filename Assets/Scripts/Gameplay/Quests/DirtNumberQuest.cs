@@ -30,7 +30,7 @@ public class DirtNumberQuest : MonoBehaviour
             {
                 if (!messageShown)
                 {
-                    HudManager.instance.showMessage("test dirt");
+                    HudManager.instance.showMessage("Tas de terre néttoyés : " + GameManager.instance.dirtPilesCollected + "/12");
                     messageShown = true;
                 }
                 return;

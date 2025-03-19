@@ -30,7 +30,7 @@ public class SprayNumberQuest : MonoBehaviour
             {
                 if (!messageShown)
                 {
-                    HudManager.instance.showMessage("test spray");
+                    HudManager.instance.showMessage("Bombes de peintures collectées : " + GameManager.instance.sprayCansCollected + "/5");
                     messageShown = true;
                 }
                 return;

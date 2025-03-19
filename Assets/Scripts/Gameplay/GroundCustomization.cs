@@ -9,7 +9,7 @@ public class GroundCustomization : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             playerInRange = true;
-            HudManager.instance.showMessage("Clic droit pour changer le sol");
+            HudManager.instance.showMessage("Clic droit pour changer le sol (" + GameManager.instance.groundDecorationCollected + "/3 débloqués)");
         }
     }
     

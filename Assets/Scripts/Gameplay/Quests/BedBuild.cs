@@ -4,6 +4,8 @@ using System.Collections;
 public class BedBuild : MonoBehaviour
 {
     private bool playerInRange = false;
+    public GameObject targetObject;
+
     
     private void OnTriggerEnter(Collider other)
     {
@@ -28,6 +30,7 @@ public class BedBuild : MonoBehaviour
         if(playerInRange && Input.GetMouseButtonDown(1) && GameManager.instance.trashCollected >= 8)
         {
             HudManager.instance.eraseMessage();
+            targetObject.SetActive(true);
             HudManager.instance.showTimedMessage("Lit construit !");
             
             // Destroy the pickup (and its parent if needed).

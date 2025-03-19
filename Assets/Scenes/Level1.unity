@@ -2710,6 +2710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 161315036114b43faa0e63eecf0e6b3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetObject: {fileID: 1012768945}
 --- !u!135 &547097528
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -28943,6 +28944,11 @@ PrefabInstance:
       addedObject: {fileID: 964020953}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d763eaa2735b63544b1041353e666550, type: 3}
+--- !u!1 &1012768945 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ad8aae1aa0cc1440b99af2142d99e0e6, type: 3}
+  m_PrefabInstance: {fileID: 1136686496}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1012768948 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ad8aae1aa0cc1440b99af2142d99e0e6, type: 3}
@@ -29678,7 +29684,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ad8aae1aa0cc1440b99af2142d99e0e6, type: 3}
       propertyPath: m_Name
-      value: bed
+      value: bedFrame
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ad8aae1aa0cc1440b99af2142d99e0e6, type: 3}
       propertyPath: m_IsActive

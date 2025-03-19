@@ -30,7 +30,7 @@ public class GraphNumberQuest : MonoBehaviour
             {
                 if (!messageShown)
                 {
-                    HudManager.instance.showMessage("Graphs nettoyés : " + GameManager.instance.graffCollected + "/5");
+                    HudManager.instance.showMessage("Graphs nettoyés : " + GameManager.instance.graffCollected + "/4");
                     messageShown = true;
                 }
                 return;

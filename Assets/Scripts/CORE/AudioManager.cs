@@ -7,11 +7,10 @@ public class AudioManager : MonoBehaviour
 	public SFXList sfx_list = new SFXList();
 	[System.Serializable]
 	public class SFXList{
-    	[SerializeField] public AudioClip sfx_key;
-		[SerializeField] public AudioClip sfx_lock;
-		[SerializeField] public AudioClip sfx_heal;
-		[SerializeField] public AudioClip sfx_end;
-		[SerializeField] public AudioClip sfx_hit;
+    	[SerializeField] public AudioClip sfx_take;
+		[SerializeField] public AudioClip sfx_clean;
+		[SerializeField] public AudioClip sfx_tag;
+		[SerializeField] public AudioClip sfx_trash;
 	}
 
 	public MusicList music_list = new MusicList();

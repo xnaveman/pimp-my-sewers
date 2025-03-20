@@ -51,6 +51,8 @@ public class DirtPickup : MonoBehaviour
                 Destroy(gameObject);
 
                 HudManager.instance.showTimedMessage("Pile de terre nettoyée ! (" + GameManager.instance.dirtPilesCollected + "/12)");
+                AudioManager am = AudioManager.instance;
+			    am.PlaySFX(am.sfx_list.sfx_clean);                
                 return;
             }
         }

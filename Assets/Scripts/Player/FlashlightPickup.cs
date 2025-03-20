@@ -28,6 +28,8 @@ public class FlashlightPickup : MonoBehaviour
         if(playerInRange && !flashlightUnlocked && Input.GetMouseButtonDown(1))
         {
             flashlightUnlocked = true;
+            AudioManager am = AudioManager.instance;
+			am.PlaySFX(am.sfx_list.sfx_take);
             
             // Automatically activate the flashlight.
             ToggleFlashlight tf = GetComponentInParent<ToggleFlashlight>();

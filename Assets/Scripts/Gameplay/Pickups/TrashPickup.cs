@@ -30,6 +30,8 @@ public class TrashPickup : MonoBehaviour
             HudManager.instance.eraseMessage();
             GameManager.instance.trashCollected++;
             HudManager.instance.showTimedMessage("Poubelle ramassée (" + GameManager.instance.trashCollected + "/8)");
+            AudioManager am = AudioManager.instance;
+			am.PlaySFX(am.sfx_list.sfx_trash);
             
             // Destroy the pickup (and its parent if needed).
             if(transform.parent != null)

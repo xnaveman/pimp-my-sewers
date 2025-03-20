@@ -1,7 +1,8 @@
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class TagCleaner : MonoBehaviour
+public class SprayPickup : MonoBehaviour
 {
     private bool playerInRange = false;
     
@@ -10,7 +11,7 @@ public class TagCleaner : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             playerInRange = true;
-            HudManager.instance.showMessage("Clic droit pour nettoyer");
+            HudManager.instance.showMessage("Clic droit pour ramasser");
         }
     }
     
@@ -28,15 +29,15 @@ public class TagCleaner : MonoBehaviour
         if(playerInRange && Input.GetMouseButtonDown(1))
         {
             HudManager.instance.eraseMessage();
-            GameManager.instance.graffCollected++;
-            HudManager.instance.showTimedMessage("Tag effacé (" + GameManager.instance.graffCollected + "/4)");
+            GameManager.instance.sprayCansCollected++;
+            HudManager.instance.showTimedMessage("Bombe de peinture trouvée ! (" + GameManager.instance.sprayCansCollected + "/5)");
             AudioManager am = AudioManager.instance;
-			am.PlaySFX(am.sfx_list.sfx_tag);
+			am.PlaySFX(am.sfx_list.sfx_take);
             
             // Destroy the pickup (and its parent if needed).
+            if(transform.parent != null)
+                Destroy(transform.parent.gameObject);
             Destroy(gameObject);
-            
-            // Use the persistent HudManager to remove the message after 2 seconds.
         }
     }
 }

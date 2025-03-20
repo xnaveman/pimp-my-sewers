@@ -33,6 +33,8 @@ public class BroomPickup : MonoBehaviour
             HudManager.instance.eraseMessage();
             GameManager.instance.broomUnlocked = true;
             HudManager.instance.showTimedMessage("Balai débloqué !");
+            AudioManager am = AudioManager.instance;
+			am.PlaySFX(am.sfx_list.sfx_take);
             
             // Destroy the pickup (and its parent if needed).
             if(transform.parent != null)

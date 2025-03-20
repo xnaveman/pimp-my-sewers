@@ -18,7 +18,7 @@ public class SliderScript : MonoBehaviour
         });
 
         _slider1.onValueChanged.AddListener((v) => {
-            _sliderText1.text = v.ToString("000");
+            _sliderText1.text = v.ToString("F2");
         });
     }
 

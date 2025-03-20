@@ -116,6 +116,7 @@ namespace PSXShaderKit
 
         void ApplyPixelationEffect(RenderTexture source, RenderTexture destination)
         {
+            // Use the global pixelation value from Params.
             if (_PixelationFactor >= 1.0f)
             {
                 Graphics.Blit(source, destination);
@@ -195,15 +196,31 @@ namespace PSXShaderKit
 
         void OnRenderImage(RenderTexture source, RenderTexture destination)
         {
-            RenderTexture pixelationRT = RenderTexture.GetTemporary(source.descriptor);
-            pixelationRT.filterMode = FilterMode.Point;
-            ApplyPixelationEffect(source, pixelationRT);
+            // Update the pixelation factor from the global value in Params.
+            _PixelationFactor = Params.pixelation; 
 
-            RenderTexture ditheringRT = RenderTexture.GetTemporary(source.descriptor);
+            // Force the internal resolution to 1280x720 (720p).
+            int internalWidth = 1280;
+            int internalHeight = 720;
+            RenderTexture internalRT = RenderTexture.GetTemporary(internalWidth, internalHeight, 0, source.format);
+            internalRT.filterMode = FilterMode.Point;
+            
+            // Downscale the source to our fixed internal resolution.
+            Graphics.Blit(source, internalRT);
+            
+            // Apply the pixelation effect on the internal render texture.
+            RenderTexture pixelationRT = RenderTexture.GetTemporary(internalRT.descriptor);
+            pixelationRT.filterMode = FilterMode.Point;
+            ApplyPixelationEffect(internalRT, pixelationRT);
+            RenderTexture.ReleaseTemporary(internalRT);
+
+            // Apply the dithering effect on the pixelated image.
+            RenderTexture ditheringRT = RenderTexture.GetTemporary(pixelationRT.descriptor);
             ditheringRT.filterMode = FilterMode.Point;
             ApplyDitheringEffect(pixelationRT, ditheringRT);
             RenderTexture.ReleaseTemporary(pixelationRT);
 
+            // Finally, apply interlacing and output the result.
             ApplyInterlacingEffect(ditheringRT, destination);
             RenderTexture.ReleaseTemporary(ditheringRT);
         }

@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.03
   m_LinearFogStart: 150
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.18867922, g: 0.18867922, b: 0.18867922, a: 1}
+  m_AmbientSkyColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -96,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 3ca2727a530c34033b5de33ced631579, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -13046,6 +13046,7 @@ GameObject:
   m_Component:
   - component: {fileID: 457445794}
   - component: {fileID: 457445793}
+  - component: {fileID: 457445795}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -13087,6 +13088,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &457445795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457445792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3febcdb42b9d94bee80a9b8221234fad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &469456971 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b22059add9b5b4a19b17297cf554431e, type: 3}
@@ -45301,11 +45314,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _PixelationFactor: 0.201
-  _ColorEmulationMode: 3
+  _ColorEmulationMode: 2
   _FullscreenColorDepth: {x: 256, y: 256, z: 256}
   _FullscreenDitherDepth: {x: 32, y: 32, z: 32}
   _DitheringMatrixSize: 2
-  _DitheringScale: 1
+  _DitheringScale: 0.598
   _InterlacingSize: 1
   _PostProcessShader: {fileID: 4800000, guid: 1d23b84b8c2a34ab9b9b38b8b244ea27, type: 3}
   _PostProcessShaderAccurate: {fileID: 4800000, guid: cd5caa09987c7485ca4bf97fa85c1447, type: 3}

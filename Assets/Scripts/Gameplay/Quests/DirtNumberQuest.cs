@@ -30,6 +30,10 @@ public class DirtNumberQuest : MonoBehaviour
             {
                 if (!messageShown)
                 {
+                    HudManager.instance.showMessage("Tas de terre néttoyés : " + GameManager.instance.dirtPilesCollected + "/12 (Trouvez le balai !)");
+                    messageShown = true;
+                } else if (!messageShown && GameManager.instance.broomUnlocked == true)
+                {
                     HudManager.instance.showMessage("Tas de terre néttoyés : " + GameManager.instance.dirtPilesCollected + "/12");
                     messageShown = true;
                 }

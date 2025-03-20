@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public int sprayCansCollected = 0;
     public int dirtPilesCollected = 0;
     public int graffCollected = 0;
+    public bool broomUnlocked = false;
 
     public int wallDecorationsCollected = 0;
     public int groundDecorationCollected = 0;

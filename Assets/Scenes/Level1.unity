@@ -13399,6 +13399,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 21bf7ddfa9d294a878463ddc48916b74, type: 2}
   - {fileID: 2100000, guid: 6f2a5695ec4e9462ebf8296d459b5b87, type: 2}
   - {fileID: 2100000, guid: 496c3e5360d2342e79645f4605b69219, type: 2}
+  - {fileID: 2100000, guid: 3578968bc13854b10b4ff55e2a38ecbc, type: 2}
+  - {fileID: 2100000, guid: 3554e161fc25f49519507e80df773e75, type: 2}
   requiredPaintBombs: 5
 --- !u!64 &464543372
 MeshCollider:
@@ -13995,6 +13997,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 21bf7ddfa9d294a878463ddc48916b74, type: 2}
   - {fileID: 2100000, guid: 6f2a5695ec4e9462ebf8296d459b5b87, type: 2}
   - {fileID: 2100000, guid: 496c3e5360d2342e79645f4605b69219, type: 2}
+  - {fileID: 2100000, guid: 3578968bc13854b10b4ff55e2a38ecbc, type: 2}
+  - {fileID: 2100000, guid: 3554e161fc25f49519507e80df773e75, type: 2}
   requiredPaintBombs: 5
 --- !u!64 &518229494
 MeshCollider:
@@ -73873,6 +73877,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 21bf7ddfa9d294a878463ddc48916b74, type: 2}
   - {fileID: 2100000, guid: 6f2a5695ec4e9462ebf8296d459b5b87, type: 2}
   - {fileID: 2100000, guid: 496c3e5360d2342e79645f4605b69219, type: 2}
+  - {fileID: 2100000, guid: 3554e161fc25f49519507e80df773e75, type: 2}
+  - {fileID: 2100000, guid: 3578968bc13854b10b4ff55e2a38ecbc, type: 2}
   requiredPaintBombs: 5
 --- !u!64 &1517463189
 MeshCollider:

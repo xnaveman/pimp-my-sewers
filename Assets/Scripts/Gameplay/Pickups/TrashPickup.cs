@@ -35,9 +35,6 @@ public class TrashPickup : MonoBehaviour
             if(transform.parent != null)
                 Destroy(transform.parent.gameObject);
             Destroy(gameObject);
-            
-            // Use the persistent HudManager to remove the message after 2 seconds.
-            HudManager.instance.RemoveMessageAfterDelay(2f);
         }
     }
 }

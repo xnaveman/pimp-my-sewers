@@ -39,10 +39,8 @@ public class BedBuild : MonoBehaviour
             Destroy(gameObject);
             
             // Use the persistent HudManager to remove the message after 2 seconds.
-            HudManager.instance.RemoveMessageAfterDelay(2f);
         } else if (playerInRange && Input.GetMouseButtonDown(1) && GameManager.instance.trashCollected < 8) {
             HudManager.instance.showTimedMessage("Ramassez touts les déchets pour construire un lit !");
-            HudManager.instance.RemoveMessageAfterDelay(2f);
 
         }
     }

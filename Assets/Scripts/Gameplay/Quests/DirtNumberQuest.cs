@@ -28,13 +28,13 @@ public class DirtNumberQuest : MonoBehaviour
             // Check if the object we hit is this object.
             if (hit.collider != null && hit.collider.gameObject == gameObject)
             {
-                if (!messageShown)
+                if (!messageShown && GameManager.instance.broomUnlocked == false)
                 {
-                    HudManager.instance.showMessage("Tas de terre néttoyés : " + GameManager.instance.dirtPilesCollected + "/12 (Trouvez le balai !)");
+                    HudManager.instance.showMessage("Tas de terre nettoyés : " + GameManager.instance.dirtPilesCollected + "/12 (Trouvez le balai !)");
                     messageShown = true;
                 } else if (!messageShown && GameManager.instance.broomUnlocked == true)
                 {
-                    HudManager.instance.showMessage("Tas de terre néttoyés : " + GameManager.instance.dirtPilesCollected + "/12");
+                    HudManager.instance.showMessage("Tas de terre nettoyés : " + GameManager.instance.dirtPilesCollected + "/12");
                     messageShown = true;
                 }
                 return;

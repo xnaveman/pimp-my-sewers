@@ -35,7 +35,6 @@ public class TagCleaner : MonoBehaviour
             Destroy(gameObject);
             
             // Use the persistent HudManager to remove the message after 2 seconds.
-            HudManager.instance.RemoveMessageAfterDelay(2f);
         }
     }
 }

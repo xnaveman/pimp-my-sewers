@@ -7,8 +7,8 @@ public class Params : MonoBehaviour
     public Slider luminositySlider;
     
     // Global variable to store the pixelation value.
-    public static float pixelation = 0.15f;
-    public static float luminosity = 15f;
+    public static float pixelation = 0.1f;
+    public static float luminosity = 50f;
 
     void Start()
     {

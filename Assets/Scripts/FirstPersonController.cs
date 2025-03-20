@@ -205,6 +205,19 @@ public class FirstPersonController : MonoBehaviour
 
     private void Update()
     {
+        // If paused, unlock the cursor and halt camera & movement update.
+        if(HudManager.pause)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            return;
+        }
+        else
+        {
+            // When not paused and if the setting is enabled, lock the cursor.
+            if(lockCursor)
+                Cursor.lockState = CursorLockMode.Locked;
+        }
+        
         #region Camera
 
         // Control camera movement

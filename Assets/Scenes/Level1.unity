@@ -68007,6 +68007,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d9ff162c365a418ca946f2ee38e3dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetObject: {fileID: 1003217871}
+  customMaterials:
+  - {fileID: 2100000, guid: b16688752453a44079d1614b23fc4e25, type: 2}
+  - {fileID: 2100000, guid: df8f5e8192f1d4692931134787ac03c5, type: 2}
+  - {fileID: 2100000, guid: 0aae71d6a406b4771813ef8fa4762a45, type: 2}
 --- !u!135 &1554690809
 SphereCollider:
   m_ObjectHideFlags: 0

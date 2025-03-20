@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BroomPickup : MonoBehaviour
 {
+    public GameObject targetObject;
+
     private bool playerInRange = false;
     
     private void OnTriggerEnter(Collider other)
@@ -36,6 +38,7 @@ public class BroomPickup : MonoBehaviour
             if(transform.parent != null)
                 Destroy(transform.parent.gameObject);
             Destroy(gameObject);
+            Destroy(targetObject);
         }
     }
 }

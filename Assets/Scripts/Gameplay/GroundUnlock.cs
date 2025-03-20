@@ -30,7 +30,7 @@ public class GroundUnlock : MonoBehaviour
         if(playerInRange && Input.GetMouseButtonDown(1))
         {
             // Check if all graffiti (4) are collected.
-            if(GameManager.instance.dirtPilesCollected >= 4)
+            if(GameManager.instance.dirtPilesCollected >= 12)
             {
                 HudManager.instance.eraseMessage();
                 targetObject.SetActive(true);

@@ -17,6 +17,7 @@ public class GameStart : MonoBehaviour
     {
         if(targetObject != null)
             StartCoroutine(FadeOutRoutine());
+        targetObject.SetActive(true);
     }
 
     IEnumerator FadeOutRoutine()

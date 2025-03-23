@@ -17,19 +17,20 @@ public class HudManager : MonoBehaviour
     [SerializeField] private GameObject hud_pv;
     [SerializeField] private GameObject hud_message;
     [SerializeField] private GameObject panel_pause;
+    [SerializeField] private GameObject backpanel;
     
     [SerializeField] private float delay_message = 3.0f; // Temps où le message auto-disparaît
-    // Remove the “has_message” flag and timer_message usage for non-timed messages
     private float timer_message = 0f;
-    // New flag to indicate if the current message should auto-remove
     private bool autoRemove = false;
     
     public static bool pause = false;
     
-    // Ajouter les sprites des items ici
     [SerializeField] private Sprite[] item_sprites;
     
     public string CurrentMessage { get; private set; } = "";
+    
+    // New global variable to indicate if a message is displayed
+    public static bool IsMessageDisplayed { get; private set; } = false;
     
     // Pattern singleton, pour récupérer facilement un objet unique dans le jeu
     void Awake(){
@@ -40,6 +41,7 @@ public class HudManager : MonoBehaviour
     
     void Start()
     {
+        backpanel.SetActive(false);
         if(hud_item == null || hud_pv == null || hud_message == null){
             Debug.Log("hud mal configuré");
         }
@@ -133,12 +135,16 @@ public class HudManager : MonoBehaviour
         hud_message.SetActive(true);
         hud_message.GetComponent<TMP_Text>().SetText(message);
         autoRemove = false;
+        backpanel.SetActive(true);
+        IsMessageDisplayed = true; // Set the global variable to true
     }
     
     public void eraseMessage(){
         hud_message.SetActive(false);
         CurrentMessage = "";
         autoRemove = false;
+        backpanel.SetActive(false);
+        IsMessageDisplayed = false; // Set the global variable to false
     }
     
     // Afficher un message qui se supprime automatiquement après delay_message secondes.
@@ -147,6 +153,8 @@ public class HudManager : MonoBehaviour
         hud_message.GetComponent<TMP_Text>().SetText(message);
         timer_message = delay_message;
         autoRemove = true;
+        backpanel.SetActive(true);
+        IsMessageDisplayed = true; // Set the global variable to true
     }
     
     // Optionnellement, on peut garder cette méthode qui démarre la coroutine sur HudManager.
@@ -158,6 +166,7 @@ public class HudManager : MonoBehaviour
     private IEnumerator RemoveMessageCoroutine(float delay)
     {
         yield return new WaitForSeconds(delay);
+        backpanel.SetActive(false);
         eraseMessage();
     }
 }
